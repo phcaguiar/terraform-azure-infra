@@ -1,0 +1,3 @@
+- src: git+git@github.com:ORG/REPO.git
+  version: vX.X.X
+  name: REPO-NAME
