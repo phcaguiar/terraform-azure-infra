@@ -1,6 +1,6 @@
-## Example: Virtual Machine with Managed Disks from a Public Image and Running a Ansible Playbook
+## Example: Virtual Machine with Managed Disks from a Public Image and Running a Ansible Playbook in a VSTS Build Pipeline
 
-This example provisions a Virtual Machine with Managed Disks from a Custom Image that already exists.
+This example provisions a Virtual Machine with Managed Disks from a Public Image n a VSTS Build Pipeline.
 
 ### What does terraform do?
 
@@ -19,7 +19,7 @@ For sensitive variables it is necessary to execute the following commands:
 ```export TF_VAR_vm_os_profile_admin_username="INSERT-VM-USERNAME"```
 ```export TF_VAR_vm_os_profile_admin_password="INSERT-VM-PASSWORD"```
 
-These variables above will be used for the user and password credentials of the virtual machine that will be created.
+These variables above will be used for the user and password credentials of the virtual machine that will be created. These variables must be created and populated in VSTS.
 
 ### Ansible Variables
 
@@ -29,36 +29,29 @@ For sensitive variables it is necessary to execute the following commands:
 
 ```export env_vsts_accesstoken="INSERT-YOUR-VSTS-TOKEN"```
 
+This variable must be created and populated in VSTS.
+
 Ansible also uses the TF_VARS_vm_os_profile_admin_username and TF_VARS_vm_os_profile_admin_password variables to authenticate to the created virtual machine and run the playbook.
 
 ### How to provisioning?
 
 To perform virtual machine provisioning you must perform some configuration:
 
+ - Create a new branch
  - Fill in the files of ansible and terraform variables.
- - Export sensitive environment variables.
+ - Insert ansible and terraform sensitive variables in VSTS.
  - Populate the `backend.tf` file to use a shared backend. # Not required but good practice.
  - Fill in the `provider.tf` file with at least the subscription id.
- - Use the `Makefile` to run the provisioning.
+ - Open a Pull Request
 
-### Makefile 
-
-The commands in the `Makefile` file make the following settings:
-
- - `make update-roles`: - Deletes the ansible dependencies that are configured in the` requirements.yml` file.
- - `make init`: Initializes the terraform backend. (terraform init)
- - `make plan`: Performs the` terraform plan`.
- - `make apply`: Performs` terraform apply`.
- - `make apply`: Performs` terraform destroy`.
-
-### Provisioning options for this examples
+### Provisioning ansible options for this examples
 
 In this environment we created the following examples of virtual machine provisioning:
 
- - Option to install windows feature IIS
+ - IIS windows installation option
 Pass the `true` value in the ansible variable` install_iis` The default value is `false`.
 
- - Installation option of windows feature IIS with WCF
+ - IIS with WCF windows installation option
 Pass the `true` value in the ansible variable` install_wcf` The default value is `false`.
 
  - dotnet core installation option
