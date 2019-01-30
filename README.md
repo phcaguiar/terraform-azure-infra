@@ -31,7 +31,7 @@ For sensitive variables it is necessary to execute the following commands:
 
 This variable must be created and populated in VSTS.
 
-Ansible also uses the TF_VARS_vm_os_profile_admin_username and TF_VARS_vm_os_profile_admin_password variables to authenticate to the created virtual machine and run the playbook.
+Ansible also uses the `TF_VARS_vm_os_profile_admin_username and` and `TF_VARS_vm_os_profile_admin_password` variables to authenticate to the created virtual machine and run the playbook.
 
 ### How to provisioning?
 
