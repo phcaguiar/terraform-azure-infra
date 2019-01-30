@@ -10,7 +10,7 @@ shared_subnet_name                      =   "Subnet-Internal-DEV"
 squad_rg_name                           =   "Cloud-Squad-EC2-DEV"
 
 # NIC variables
-nic_name                                =   "nictest"
+nic_name                                =   "nictest1"
 nic_ip_configuration_name               =   "nicipconftest"
 
 # VM variables
