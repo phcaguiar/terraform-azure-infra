@@ -16,10 +16,6 @@ variable "shared_subnet_name" {
   description = "The shared subnet name"
 }
 
-variable "vm_image_name" {
-  description = "The shared vm image name name"
-}
-
 # Your squad variables
 variable "squad_rg_name" {
   description = "The squad resource group name"
@@ -44,7 +40,7 @@ variable "vm_size" {
   description = "VM size"
 }
 
-variable "storage_os_disk_name" {
+variable "vm_storage_os_disk_name" {
   description = "VM storage OS disk name"
 }
 
@@ -70,4 +66,20 @@ variable "vm_os_profile_admin_username" {
 
 variable "vm_os_profile_admin_password" {
   description = "VM administrator password (recommended to disable password auth)"
+}
+
+variable "vm_storage_image_reference_publisher" {
+  description = "Storage Image Reference Publisher"
+}
+
+variable "vm_storage_image_reference_offer" {
+  description = "Storage Image Reference Offer"
+}
+
+variable "vm_storage_image_reference_sku" {
+  description = "Storage Image Reference Sku"
+}
+
+variable "vm_storage_image_reference_version" {
+  description = "Storage Image Reference Version"
 }

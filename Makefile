@@ -4,6 +4,9 @@ update-roles:
 init:
 	terraform init
 
+validate:
+	terraform validate	
+
 plan:
 	terraform plan
 

@@ -2,17 +2,12 @@
 - name: Windows Provisioning
   hosts: all
   vars_files:
-    - ansible_vars/common-windows.yml
+    - ansible_vars/variables.yml
 
   roles:
-    - role: my-role
+    - role: stone-payments.win-vsts-agent
 
   tasks:
-    - name: Set timezone to 'GMT Standard Time' (GMT)
-      win_timezone:
-        timezone: UTC
-      tags: set-timezone
-
     - name: Install IIS Features
       win_feature:
         name: "{{ item }}"
