@@ -21,6 +21,14 @@ steps:
 
 
 - task: tsuyoshiushio.shell-exec.shellexec.shellexec@0
+  displayName: 'Download Ansible Roles'
+  inputs:
+    code: |
+     ansible-galaxy install -r requirements.yml --force -p roles
+     
+
+
+- task: tsuyoshiushio.shell-exec.shellexec.shellexec@0
   displayName: 'Terraform Init'
   inputs:
     code: |
