@@ -1,0 +1,61 @@
+resources:
+- repo: self
+queue:
+  name: INSERT YOUR BUILD AGENT NAME HERE
+#Your build pipeline references a secret variable named ‘az.pass’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references a secret variable named ‘TF_VAR_vm_os_profile_admin_password’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references a secret variable named ‘env_vsts_accesstoken’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references a secret variable named ‘TF_VAR_vm_os_profile_admin_password’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references a secret variable named ‘env_vsts_accesstoken’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references a secret variable named ‘TF_VAR_vm_os_profile_admin_password’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references a secret variable named ‘env_vsts_accesstoken’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+variables:
+  az.user: 'MYUSER@MYDOMAIN.COM'
+steps:
+- task: tsuyoshiushio.shell-exec.shellexec.shellexec@0
+  displayName: 'Azure Login'
+  inputs:
+    code: |
+     az login -u $(az.user) -p $(az.pass) | echo ""
+     
+
+
+- task: tsuyoshiushio.shell-exec.shellexec.shellexec@0
+  displayName: 'Terraform Init'
+  inputs:
+    code: |
+     export TF_VAR_vm_os_profile_admin_username=$(TF_VAR_vm_os_profile_admin_username)
+     export TF_VAR_vm_os_profile_admin_password=$(TF_VAR_vm_os_profile_admin_password)
+     export env_vsts_accesstoken=$(env_vsts_accesstoken)
+     
+     terraform init -no-color
+     
+     
+
+
+- task: tsuyoshiushio.shell-exec.shellexec.shellexec@0
+  displayName: 'Terraform Validate'
+  inputs:
+    code: |
+     export TF_VAR_vm_os_profile_admin_username=$(TF_VAR_vm_os_profile_admin_username)
+     export TF_VAR_vm_os_profile_admin_password=$(TF_VAR_vm_os_profile_admin_password)
+     export env_vsts_accesstoken=$(env_vsts_accesstoken)
+     
+     terraform validate -no-color
+
+
+- task: tsuyoshiushio.shell-exec.shellexec.shellexec@0
+  displayName: 'Terraform Plan'
+  inputs:
+    code: |
+     export TF_VAR_vm_os_profile_admin_username=$(TF_VAR_vm_os_profile_admin_username)
+     export TF_VAR_vm_os_profile_admin_password=$(TF_VAR_vm_os_profile_admin_password)
+     export env_vsts_accesstoken=$(env_vsts_accesstoken)
+     
+     terraform plan -no-color -out=plan-output
+
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
