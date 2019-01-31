@@ -1,3 +1,8 @@
-- src: git+git@github.com:stone-payments/ansible-win-vsts-agent.git
-  version: v2.1.0
-  name: stone-payments.win-vsts-agent
+# - src: git+git@github.com:stone-payments/ansible-win-vsts-agent.git
+#   version: v2.1.0
+#   name: stone-payments.win-vsts-agent
+
+
+- src: git+git@github.com:stone-payments/ansible-role-vsts-agent.git
+  version: fix/installation_user 
+  name: stone-payments.ansible-role-vsts-agent

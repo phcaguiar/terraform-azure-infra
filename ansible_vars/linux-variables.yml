@@ -1,0 +1,22 @@
+---
+# Ansible VM variables
+ansible_user: "{{ lookup('env','TF_VAR_vm_os_profile_admin_username') }}"
+ansible_password: "{{ lookup('env','TF_VAR_vm_os_profile_admin_password') }}"
+
+# Ansible VSTS project variables
+vsts_accountname: ""
+vsts_projectname: ""
+vsts_remove: false # Use true to uninstall
+vsts_reinstall: false # Use true to reinstall
+vsts_accesstoken: "{{ lookup('env','env_vsts_accesstoken') }}"
+vsts_poolname: ""
+vsts_github_api: "https://api.github.com/repos/Microsoft/vsts-agent/releases/latest"
+vsts_agent_user: "vstsagent"
+vsts_server_url: "https://{{ vsts_accountname }}.visualstudio.com/"
+vsts_agent_name: "{{ ansible_hostname }}"
+vsts_agent_file: "vsts-agent-linux-x64-{{ vsts_agent_version }}.tar.gz"
+vsts_agentfolder: "/home/{{ vsts_agent_user }}/agent/"
+vsts_workfolder: "/home/{{ vsts_agent_user }}/work/"
+vsts_agent_version: "2.146.0"
+vsts_agent_baseurl: "https://vstsagentpackage.azureedge.net/agent"
+vsts_agent_fullurl: "{{ vsts_agent_baseurl }}/{{ vsts_agent_version }}/{{ vsts_agent_file }}"

@@ -1,0 +1,8 @@
+---
+- name: Linux Provisioning
+  hosts: all
+  become: true
+  vars_files:
+    - ansible_vars/linux-variables.yml
+  roles:
+    - role: stone-payments.ansible-role-vsts-agent

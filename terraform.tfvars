@@ -1,27 +1,40 @@
 # Default variables
-location                                =   "eastus2"
+location                                        =   ""
 
 # Shared variables
-shared_rg_name                          =   "Networking-EC2-DEV"
-shared_vnet_name                        =   "VirtualNetwork-EC2-DEV"
-shared_subnet_name                      =   "Subnet-Internal-DEV"
+shared_rg_name                                  =   ""
+shared_vnet_name                                =   ""
+shared_subnet_name                              =   ""
 
 # Your squad variables
-squad_rg_name                           =   "Cloud-Squad-EC2-DEV"
+squad_rg_name                                   =   ""
 
 # NIC variables
-nic_name                                =   "nictest"
-nic_ip_configuration_name               =   "nicipconftest"
+nic_name                                        =   ""
+nic_ip_configuration_name                       =   ""
 
-# VM variables
-vm_name                                 =   "vmtest"
-vm_size                                 =   "Standard_F2"
-vm_storage_os_disk_name                 =   "vmdisktest"
-vm_storage_os_disk_caching              =   "ReadWrite"
-vm_storage_os_create_option             =   "FromImage"
-vm_storage_os_managed_disk_type         =   "Standard_LRS"
-vm_os_profile_computer_name             =   "compnametest"
-vm_storage_image_reference_publisher    =   "MicrosoftWindowsServer"
-vm_storage_image_reference_offer        =   "WindowsServer"
-vm_storage_image_reference_sku          =   "2016-Datacenter-Server-Core"
-vm_storage_image_reference_version      =   "latest"
+# Windows VM variables
+vm_windows_name                                 =   ""
+vm_windows_size                                 =   ""
+vm_windows_storage_os_disk_name                 =   ""
+vm_windows_storage_os_disk_caching              =   ""
+vm_windows_storage_os_create_option             =   ""
+vm_windows_storage_os_managed_disk_type         =   ""
+vm_windows_os_profile_computer_name             =   ""
+vm_windows_storage_image_reference_publisher    =   ""
+vm_windows_storage_image_reference_offer        =   ""
+vm_windows_storage_image_reference_sku          =   ""
+vm_windows_storage_image_reference_version      =   ""
+
+# Linux VM variables
+vm_linux_name                                   =   ""
+vm_linux_size                                   =   ""
+vm_linux_storage_os_disk_name                   =   ""
+vm_linux_storage_os_disk_caching                =   ""
+vm_linux_storage_os_create_option               =   ""
+vm_linux_storage_os_managed_disk_type           =   ""
+vm_linux_os_profile_computer_name               =   ""
+vm_linux_storage_image_reference_publisher      =   ""
+vm_linux_storage_image_reference_offer          =   ""
+vm_linux_storage_image_reference_sku            =   ""
+vm_linux_storage_image_reference_version        =   ""

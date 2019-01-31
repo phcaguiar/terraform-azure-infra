@@ -4,6 +4,7 @@
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
+**/roles/*
 !**/.terraform/environment
 
 # .tfstate files

@@ -19,8 +19,8 @@ nssm_version: "" # See https://chocolatey.org
 
 
 # Ansible VSTS project variables
-vsts_accountname: "stonepagamentos"
-vsts_projectname: "Inf-Infrastructure"
-vsts_deploymentgroupname: "cloud-test"
+vsts_accountname: ""
+vsts_projectname: ""
+vsts_deploymentgroupname: ""
 vsts_remove: false # Use true to uninstall
 vsts_accesstoken: "{{ lookup('env','env_vsts_accesstoken') }}"
