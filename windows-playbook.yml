@@ -2,7 +2,7 @@
 - name: Windows Provisioning
   hosts: all
   vars_files:
-    - ansible_vars/variables.yml
+    - ansible_vars/windows-variables.yml
 
   roles:
     - role: stone-payments.win-vsts-agent
